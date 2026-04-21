@@ -3,6 +3,7 @@ import Nav from '../components/Nav';
 import Hero from '../components/Hero';
 import SocialProof from '../components/SocialProof';
 import Recognition from '../components/Recognition';
+import About from '../components/About';
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Hero />
       <SocialProof />
       <Recognition />
+      <About />
     </div>
   );
 }
