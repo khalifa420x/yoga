@@ -15,8 +15,8 @@ export default function Courses() {
   }, []);
 
   return (
-    <section id="courses" className="bg-surface-low py-32">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="courses" className="bg-surface-low py-32 w-full">
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
         <div className="text-center">
           <p className="text-xs tracking-widest text-on-surface/40 mb-3 font-plus-jakarta uppercase">Les cours</p>
           <h2 className="font-noto-serif text-3xl md:text-4xl text-primary mt-3 mb-16" style={{ letterSpacing: '-0.02em' }}>

@@ -22,8 +22,8 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" className="bg-primary py-32">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="about" className="bg-primary py-32 w-full">
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
         <div className="flex flex-col md:grid md:grid-cols-2 gap-16 items-center">
           {/* Photo */}
           <div ref={photoRef}>

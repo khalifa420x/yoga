@@ -43,8 +43,8 @@ export default function Schedule() {
   };
 
   return (
-    <section ref={sectionRef} id="horaires" className="bg-surface py-32">
-      <div className="max-w-4xl mx-auto px-6">
+    <section ref={sectionRef} id="horaires" className="bg-surface py-32 w-full">
+      <div className="w-full max-w-4xl mx-auto px-4 md:px-8">
         <div className="text-center">
           <p className="text-xs tracking-widest text-on-surface/40 mb-3 font-plus-jakarta uppercase">Horaires</p>
           <h2 className="font-noto-serif text-3xl md:text-4xl text-primary mt-3 mb-2" style={{ letterSpacing: '-0.02em' }}>

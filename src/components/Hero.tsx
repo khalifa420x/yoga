@@ -29,7 +29,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden">
+    <section className="relative min-h-screen overflow-hidden w-full">
       {/* Background Image */}
       <Image
         ref={bgRef}
@@ -40,31 +40,31 @@ export default function Hero() {
         priority
       />
 
-      {/* Overlay — dark gradient bottom-left, subtle */}
+      {/* Overlay */}
       <div
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(135deg, rgba(28,31,20,0.80) 0%, rgba(28,31,20,0.35) 55%, transparent 100%)'
+          background: 'linear-gradient(135deg, rgba(28,31,20,0.82) 0%, rgba(28,31,20,0.38) 55%, transparent 100%)'
         }}
       />
 
-      {/* Content — bottom left, editorial */}
-      <div className="absolute bottom-0 left-0 pb-16 pl-6 md:pb-24 md:pl-16 max-w-2xl">
+      {/* Content — bottom left, constrained to viewport width */}
+      <div className="absolute bottom-0 left-0 right-0 pb-20 md:pb-24 px-4 md:pl-16 md:pr-8 md:max-w-2xl">
         <div ref={textRef}>
           <h1
-            className="font-noto-serif font-bold text-6xl md:text-8xl text-surface leading-[0.92] tracking-tight"
+            className="font-noto-serif font-bold text-4xl md:text-6xl lg:text-7xl text-surface leading-[0.95] tracking-tight"
             style={{ letterSpacing: '-0.02em' }}
           >
             Retrouvez<br />un corps<br />léger
           </h1>
-          <p className="font-plus-jakarta text-lg text-surface/85 mt-6 max-w-md leading-relaxed">
+          <p className="font-plus-jakarta text-base md:text-lg text-surface/85 mt-5 max-w-sm md:max-w-md leading-relaxed">
             Des cours accessibles à tous, même si vous n'avez jamais fait de yoga.
           </p>
         </div>
 
-        <div ref={ctaRef} className="mt-10 flex flex-col sm:flex-row gap-4">
+        <div ref={ctaRef} className="mt-8 flex flex-col sm:flex-row gap-3">
           <motion.button
-            className="text-surface rounded-full px-8 py-4 font-plus-jakarta text-base font-medium w-full sm:w-auto"
+            className="text-surface rounded-full px-8 py-4 font-plus-jakarta text-base font-medium w-full md:w-auto"
             style={{
               background: 'linear-gradient(135deg, #28351c 0%, #3e4c31 100%)',
               boxShadow: '0 20px 40px rgba(40,53,28,0.30)',
@@ -82,7 +82,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Desktop vignette — no border, soft rounded */}
+      {/* Desktop vignette — hidden on mobile */}
       <div className="absolute bottom-8 right-8 hidden md:block">
         <div className="w-40 h-52 rounded-3xl overflow-hidden" style={{ boxShadow: '0 20px 40px rgba(40,53,28,0.20)' }}>
           <Image
@@ -90,7 +90,7 @@ export default function Hero() {
             alt="Studio Montpellier"
             width={160}
             height={208}
-            className="object-cover"
+            className="object-cover max-w-full"
           />
         </div>
         <p className="text-surface/60 text-xs mt-2 text-center font-plus-jakarta">

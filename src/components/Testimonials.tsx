@@ -16,8 +16,8 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section className="bg-primary py-32">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="bg-primary py-32 w-full">
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
         <div className="text-center">
           <p className="text-xs tracking-widest text-sage-light mb-3 font-plus-jakarta uppercase">Ils en parlent mieux que nous</p>
           <h2 className="font-noto-serif text-3xl md:text-4xl text-surface mt-3 mb-16" style={{ letterSpacing: '-0.02em' }}>

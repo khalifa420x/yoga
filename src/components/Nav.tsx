@@ -16,15 +16,13 @@ export default function Nav() {
 
   return (
     <nav
-      className={`sticky top-0 z-50 h-16 md:h-18 flex items-center justify-between px-4 md:px-10 transition-all duration-500 ${
-        scrolled
-          ? 'backdrop-blur-xl'
-          : 'bg-transparent'
+      className={`sticky top-0 z-50 h-16 flex items-center justify-between px-4 md:px-10 transition-all duration-500 w-full ${
+        scrolled ? 'backdrop-blur-xl' : 'bg-transparent'
       }`}
       style={scrolled ? { background: 'rgba(252,249,239,0.85)' } : undefined}
     >
       {/* Logo */}
-      <div className="font-noto-serif italic text-xl text-primary tracking-tight">
+      <div className="font-noto-serif italic text-xl text-primary tracking-tight shrink-0">
         Sophie · Yoga
       </div>
 
@@ -46,7 +44,7 @@ export default function Nav() {
 
       {/* Button */}
       <motion.button
-        className="text-surface rounded-full px-6 py-2.5 font-plus-jakarta text-sm font-medium"
+        className="text-surface rounded-full px-4 py-2 md:px-6 md:py-2.5 font-plus-jakarta text-sm font-medium shrink-0"
         style={{
           background: 'linear-gradient(135deg, #28351c 0%, #3e4c31 100%)',
           boxShadow: '0 4px 16px rgba(40,53,28,0.18)',
@@ -54,7 +52,7 @@ export default function Nav() {
         whileHover={{ scale: 1.03, boxShadow: '0 8px 24px rgba(40,53,28,0.28)' }}
         transition={{ type: 'spring', stiffness: 300 }}
       >
-        Réserver une séance
+        Réserver
       </motion.button>
     </nav>
   );

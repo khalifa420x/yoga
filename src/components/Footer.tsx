@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
-    <footer className="bg-primary py-12">
-      <div className="max-w-4xl mx-auto px-6 text-center">
+    <footer className="bg-primary py-12 w-full">
+      <div className="w-full max-w-4xl mx-auto px-4 md:px-8 text-center">
         <p className="font-noto-serif italic text-lg text-surface/80">
           Sophie Laurent · Professeure de Yoga
         </p>

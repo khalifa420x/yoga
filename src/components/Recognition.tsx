@@ -15,15 +15,15 @@ export default function Recognition() {
   }, []);
 
   return (
-    <section className="bg-surface py-32">
-      <div className="text-center">
+    <section className="bg-surface py-32 w-full">
+      <div className="text-center px-4">
         <p className="text-xs tracking-widest text-on-surface/40 mb-3 font-plus-jakarta uppercase">Ce site est fait pour vous si…</p>
         <h2 className="font-noto-serif text-3xl md:text-4xl text-primary mt-3 mb-16" style={{ letterSpacing: '-0.02em' }}>
           Vous vous reconnaissez ici ?
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto px-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-7xl mx-auto px-4 md:px-8">
         <motion.div
           ref={(el) => { cardsRef.current[0] = el; }}
           whileHover={{ y: -6, transition: { duration: 0.22, ease: 'easeOut' } }}

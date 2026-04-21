@@ -15,8 +15,8 @@ export default function FinalCTA() {
   }, []);
 
   return (
-    <section className="bg-surface-low py-32">
-      <div className="max-w-2xl mx-auto px-6 text-center">
+    <section className="bg-surface-low py-32 w-full">
+      <div className="w-full max-w-2xl mx-auto px-4 md:px-8 text-center">
         <h2
           ref={(el) => { elementsRef.current[0] = el; }}
           className="font-noto-serif italic text-4xl md:text-5xl text-primary mb-4"
