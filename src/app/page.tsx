@@ -6,6 +6,7 @@ import Recognition from '../components/Recognition';
 import About from '../components/About';
 import Courses from '../components/Courses';
 import Benefits from '../components/Benefits';
+import Schedule from '../components/Schedule';
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <About />
       <Courses />
       <Benefits />
+      <Schedule />
     </div>
   );
 }
