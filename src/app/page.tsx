@@ -7,6 +7,8 @@ import About from '../components/About';
 import Courses from '../components/Courses';
 import Benefits from '../components/Benefits';
 import Schedule from '../components/Schedule';
+import Testimonials from '../components/Testimonials';
+import FinalCTA from '../components/FinalCTA';
 
 export default function Home() {
   return (
@@ -19,6 +21,8 @@ export default function Home() {
       <Courses />
       <Benefits />
       <Schedule />
+      <Testimonials />
+      <FinalCTA />
     </div>
   );
 }
