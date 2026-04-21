@@ -9,6 +9,7 @@ import Benefits from '../components/Benefits';
 import Schedule from '../components/Schedule';
 import Testimonials from '../components/Testimonials';
 import FinalCTA from '../components/FinalCTA';
+import Footer from '../components/Footer';
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
       <Schedule />
       <Testimonials />
       <FinalCTA />
+      <Footer />
     </div>
   );
 }
