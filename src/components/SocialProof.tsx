@@ -14,19 +14,19 @@ export default function SocialProof() {
   }, []);
 
   return (
-    <section className="bg-sand py-8">
-      <div className="flex justify-center items-center">
-        <div ref={(el) => { itemsRef.current[0] = el; }} className="text-center px-8 md:px-16 border-r border-text-light/20">
-          <div className="font-dm-serif text-3xl text-sage">+200</div>
-          <div className="font-inter text-xs text-text-light mt-1">élèves accompagnés</div>
+    <section className="bg-surface-high py-10">
+      <div className="flex justify-center items-center gap-0">
+        <div ref={(el) => { itemsRef.current[0] = el; }} className="text-center px-10 md:px-20">
+          <div className="font-noto-serif text-4xl text-primary">+200</div>
+          <div className="font-plus-jakarta text-xs text-on-surface/50 mt-1.5 tracking-wide">élèves accompagnés</div>
         </div>
-        <div ref={(el) => { itemsRef.current[1] = el; }} className="text-center px-8 md:px-16 border-r border-text-light/20">
-          <div className="font-dm-serif text-3xl text-sage">8 ans</div>
-          <div className="font-inter text-xs text-text-light mt-1">d'enseignement</div>
+        <div ref={(el) => { itemsRef.current[1] = el; }} className="text-center px-10 md:px-20">
+          <div className="font-noto-serif text-4xl text-primary">8 ans</div>
+          <div className="font-plus-jakarta text-xs text-on-surface/50 mt-1.5 tracking-wide">d'enseignement</div>
         </div>
-        <div ref={(el) => { itemsRef.current[2] = el; }} className="text-center px-8 md:px-16">
-          <div className="font-dm-serif text-3xl text-sage">4.9 ★</div>
-          <div className="font-inter text-xs text-text-light mt-1">avis vérifiés</div>
+        <div ref={(el) => { itemsRef.current[2] = el; }} className="text-center px-10 md:px-20">
+          <div className="font-noto-serif text-4xl text-primary">4.9 ★</div>
+          <div className="font-plus-jakarta text-xs text-on-surface/50 mt-1.5 tracking-wide">avis vérifiés</div>
         </div>
       </div>
     </section>

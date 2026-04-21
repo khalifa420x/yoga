@@ -13,19 +13,14 @@ export default function Hero() {
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Background zoom animation
     if (!prefersReducedMotion && bgRef.current) {
       gsap.fromTo(bgRef.current, { scale: 1 }, { scale: 1.05, duration: 12, ease: 'none' });
     }
-
-    // Text reveal
     if (textRef.current) {
-      gsap.fromTo(textRef.current, { opacity: 0, y: 16 }, { opacity: 1, y: 0, delay: 0.3, duration: 0.8 });
+      gsap.fromTo(textRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, delay: 0.3, duration: 0.9 });
     }
-
-    // CTA reveal
     if (ctaRef.current) {
-      gsap.fromTo(ctaRef.current, { opacity: 0, y: 12 }, { opacity: 1, y: 0, delay: 0.75, duration: 0.6 });
+      gsap.fromTo(ctaRef.current, { opacity: 0, y: 14 }, { opacity: 1, y: 0, delay: 0.8, duration: 0.7 });
     }
   }, []);
 
@@ -41,52 +36,55 @@ export default function Hero() {
         src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1400&q=85"
         alt="Yoga background"
         fill
-        className="hero-bg object-cover"
+        className="object-cover"
         priority
       />
 
-      {/* Overlay */}
+      {/* Overlay — dark gradient bottom-left, subtle */}
       <div
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(135deg, rgba(42,42,36,0.75) 0%, rgba(42,42,36,0.20) 60%, transparent 100%)'
+          background: 'linear-gradient(135deg, rgba(28,31,20,0.80) 0%, rgba(28,31,20,0.35) 55%, transparent 100%)'
         }}
       />
 
-      {/* Content */}
-      <div className="absolute bottom-0 left-0 pb-12 pl-6 md:pb-20 md:pl-16">
-        <div ref={textRef} className="hero-text">
-          <h1 className="font-dm-serif italic text-4xl md:text-6xl text-white leading-tight">
-            Retrouvez un corps léger et un esprit calme
+      {/* Content — bottom left, editorial */}
+      <div className="absolute bottom-0 left-0 pb-16 pl-6 md:pb-24 md:pl-16 max-w-2xl">
+        <div ref={textRef}>
+          <h1
+            className="font-noto-serif font-bold text-6xl md:text-8xl text-surface leading-[0.92] tracking-tight"
+            style={{ letterSpacing: '-0.02em' }}
+          >
+            Retrouvez<br />un corps<br />léger
           </h1>
-          <p className="font-inter text-base text-white/80 mt-4 max-w-md">
+          <p className="font-plus-jakarta text-lg text-surface/85 mt-6 max-w-md leading-relaxed">
             Des cours accessibles à tous, même si vous n'avez jamais fait de yoga.
           </p>
         </div>
 
-        <div ref={ctaRef} className="hero-cta mt-8">
+        <div ref={ctaRef} className="mt-10 flex flex-col sm:flex-row gap-4">
           <motion.button
-            className="bg-sage text-white rounded-full px-8 py-4 font-inter text-base w-full md:w-auto"
-            whileHover={{
-              scale: 1.03,
-              boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
-              transition: { duration: 0.22 }
+            className="text-surface rounded-full px-8 py-4 font-plus-jakarta text-base font-medium w-full sm:w-auto"
+            style={{
+              background: 'linear-gradient(135deg, #28351c 0%, #3e4c31 100%)',
+              boxShadow: '0 20px 40px rgba(40,53,28,0.30)',
             }}
+            whileHover={{ scale: 1.03, transition: { duration: 0.22 } }}
           >
             Réserver ma première séance →
           </motion.button>
           <button
             onClick={handleScrollToCourses}
-            className="text-white/70 underline text-sm mt-3 block font-inter"
+            className="text-surface/70 text-sm font-plus-jakarta underline underline-offset-4 self-center"
           >
             Découvrir les cours ↓
           </button>
         </div>
       </div>
 
-      {/* Desktop Vignette */}
+      {/* Desktop vignette — no border, soft rounded */}
       <div className="absolute bottom-8 right-8 hidden md:block">
-        <div className="w-40 h-52 rounded-2xl overflow-hidden border-2 border-white/20">
+        <div className="w-40 h-52 rounded-3xl overflow-hidden" style={{ boxShadow: '0 20px 40px rgba(40,53,28,0.20)' }}>
           <Image
             src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&q=85"
             alt="Studio Montpellier"
@@ -95,7 +93,7 @@ export default function Hero() {
             className="object-cover"
           />
         </div>
-        <p className="text-white/60 text-xs mt-2 text-center font-inter">
+        <p className="text-surface/60 text-xs mt-2 text-center font-plus-jakarta">
           Studio · Montpellier
         </p>
       </div>

@@ -1,13 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  --color-cream: #F0EDE4;
-  --color-sand: #E8E4D8;
+  /* Yoganova design system */
+  --color-primary: #28351c;
+  --color-primary-container: #3e4c31;
+  --color-surface: #fcf9ef;
+  --color-surface-low: #f2efe6;
+  --color-surface-high: #e5e2d9;
+  --color-on-surface: #1a1f14;
+
+  /* Legacy compatibility */
+  --color-cream: #fcf9ef;
+  --color-sand: #e5e2d9;
   --color-sage: #5A7A5F;
   --color-sage-light: #7A9A7F;
-  --color-forest: #3A4A3C;
-  --color-darkforest: #2A3030;
-  --color-text-main: #2A2A24;
+  --color-forest: #28351c;
+  --color-darkforest: #1a1f14;
+  --color-text-main: #1a1f14;
   --color-text-muted: #5A5A50;
   --color-text-light: #8A8A7A;
   --color-gold: #C8A052;
@@ -15,13 +24,19 @@
   --color-blue-pale: #E8E8F5;
   --color-terra-pale: #F5E8E0;
   --color-violet-pale: #F0E8F5;
+
+  /* Fonts */
+  --font-noto-serif: var(--font-noto-serif-var), serif;
+  --font-plus-jakarta: var(--font-plus-jakarta-var), sans-serif;
+  --font-dm-serif: var(--font-noto-serif-var), serif;
+  --font-inter: var(--font-plus-jakarta-var), sans-serif;
 }
 
 @layer base {
   body {
-    background-color: #F0EDE4;
-    color: #2A2A24;
-    font-family: "Inter", system-ui, sans-serif;
+    background-color: #fcf9ef;
+    color: #1a1f14;
+    font-family: var(--font-plus-jakarta-var), "Plus Jakarta Sans", system-ui, sans-serif;
     overflow-x: hidden;
   }
 }

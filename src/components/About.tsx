@@ -13,16 +13,16 @@ export default function About() {
 
     if (!prefersReducedMotion) {
       if (photoRef.current) {
-        gsap.fromTo(photoRef.current, { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.8 });
+        gsap.fromTo(photoRef.current, { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.9 });
       }
       if (textRef.current) {
-        gsap.fromTo(textRef.current, { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: 0.8, delay: 0.15 });
+        gsap.fromTo(textRef.current, { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: 0.9, delay: 0.18 });
       }
     }
   }, []);
 
   return (
-    <section className="bg-forest py-20">
+    <section id="about" className="bg-primary py-32">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:grid md:grid-cols-2 gap-16 items-center">
           {/* Photo */}
@@ -32,26 +32,27 @@ export default function About() {
               alt="Sophie Laurent, professeure de yoga à Montpellier"
               width={480}
               height={600}
-              className="rounded-2xl w-full object-cover"
+              className="rounded-3xl w-full object-cover"
+              style={{ boxShadow: '0 20px 40px rgba(0,0,0,0.20)' }}
             />
           </div>
 
           {/* Text */}
           <div ref={textRef}>
-            <span className="text-xs tracking-widest text-sage-light mb-4 block">VOTRE PROFESSEURE</span>
-            <h2 className="font-dm-serif text-4xl text-cream mb-1">Sophie Laurent</h2>
-            <p className="font-inter text-sm text-cream/60 mb-8">Professeure certifiée · 8 ans · 200h RYT</p>
-            <div className="space-y-4">
-              <p className="font-inter text-base text-cream/80 leading-relaxed">
+            <span className="text-xs tracking-widest text-sage-light mb-4 block font-plus-jakarta uppercase">Votre professeure</span>
+            <h2 className="font-noto-serif text-4xl text-surface mb-1" style={{ letterSpacing: '-0.02em' }}>Sophie Laurent</h2>
+            <p className="font-plus-jakarta text-sm text-surface/50 mb-10">Professeure certifiée · 8 ans · 200h RYT</p>
+            <div className="space-y-5">
+              <p className="font-plus-jakarta text-base text-surface/80 leading-relaxed">
                 J'enseigne le yoga parce que j'en ai moi-même eu besoin. Après une période d'épuisement intense, le yoga m'a aidée à retrouver mon équilibre — pas en devenant quelqu'un d'autre, mais en prenant soin de moi simplement.
               </p>
-              <p className="font-inter text-base text-cream/80 leading-relaxed">
+              <p className="font-plus-jakarta text-base text-surface/80 leading-relaxed">
                 Mes cours sont accessibles, sans jargon. On part de là où vous en êtes aujourd'hui, avec le corps que vous avez.
               </p>
             </div>
             <a
               href="#approach"
-              className="text-sm text-sage-light underline mt-8 inline-block hover:text-cream transition"
+              className="font-plus-jakarta text-sm text-sage-light underline underline-offset-4 mt-10 inline-block hover:text-surface transition"
             >
               Mon approche en détail ↓
             </a>

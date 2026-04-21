@@ -3,13 +3,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        cream: '#F0EDE4',
-        sand: '#E8E4D8',
+        // Yoganova design system
+        primary: '#28351c',
+        'primary-container': '#3e4c31',
+        surface: '#fcf9ef',
+        'surface-low': '#f2efe6',
+        'surface-high': '#e5e2d9',
+        'on-surface': '#1a1f14',
+        // Legacy
+        cream: '#fcf9ef',
+        sand: '#e5e2d9',
         sage: '#5A7A5F',
         'sage-light': '#7A9A7F',
-        forest: '#3A4A3C',
-        darkforest: '#2A3030',
-        'text-main': '#2A2A24',
+        forest: '#28351c',
+        darkforest: '#1a1f14',
+        'text-main': '#1a1f14',
         'text-muted': '#5A5A50',
         'text-light': '#8A8A7A',
         gold: '#C8A052',
@@ -31,15 +39,14 @@ export default {
         'destructive-foreground': 'hsl(var(--destructive-foreground) / <alpha-value>)',
         border: 'hsl(var(--border) / <alpha-value>)',
         input: 'hsl(var(--input) / <alpha-value>)',
-        primary: 'hsl(var(--primary) / <alpha-value>)',
-        'primary-foreground': 'hsl(var(--primary-foreground) / <alpha-value>)',
-        secondary: 'hsl(var(--secondary) / <alpha-value>)',
-        'secondary-foreground': 'hsl(var(--secondary-foreground) / <alpha-value>)',
         ring: 'hsl(var(--ring) / <alpha-value>)',
       },
       fontFamily: {
-        'dm-serif': ['DM Serif Display', 'serif'],
-        'inter': ['Inter', 'sans-serif'],
+        'noto-serif': ['var(--font-noto-serif-var)', 'Noto Serif', 'serif'],
+        'plus-jakarta': ['var(--font-plus-jakarta-var)', 'Plus Jakarta Sans', 'sans-serif'],
+        // Legacy aliases — map to new fonts
+        'dm-serif': ['var(--font-noto-serif-var)', 'Noto Serif', 'serif'],
+        'inter': ['var(--font-plus-jakarta-var)', 'Plus Jakarta Sans', 'sans-serif'],
       },
     },
   },
