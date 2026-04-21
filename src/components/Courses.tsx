@@ -3,11 +3,11 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { revealStagger } from '../lib/animations';
-import { Card } from '../ui/card';
-import { Badge } from '../ui/badge';
+import { Card } from './ui/card';
+import { Badge } from './ui/badge';
 
 export default function Courses() {
-  const cardsRef = useRef([]);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -29,7 +29,7 @@ export default function Courses() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Card 1 */}
           <motion.div
-            ref={(el) => (cardsRef.current[0] = el)}
+            ref={(el) => { cardsRef.current[0] = el; }}
             whileHover={{ y: -5, boxShadow: '0 12px 32px rgba(0,0,0,0.10)', transition: { duration: 0.22, ease: 'easeOut' } }}
           >
             <Card className="bg-white border border-sand/60 rounded-2xl p-8 overflow-hidden">
@@ -51,7 +51,7 @@ export default function Courses() {
 
           {/* Card 2 */}
           <motion.div
-            ref={(el) => (cardsRef.current[1] = el)}
+            ref={(el) => { cardsRef.current[1] = el; }}
             whileHover={{ y: -5, boxShadow: '0 12px 32px rgba(0,0,0,0.10)', transition: { duration: 0.22, ease: 'easeOut' } }}
           >
             <Card className="bg-white border border-sand/60 rounded-2xl p-8 overflow-hidden">
@@ -73,7 +73,7 @@ export default function Courses() {
 
           {/* Card 3 */}
           <motion.div
-            ref={(el) => (cardsRef.current[2] = el)}
+            ref={(el) => { cardsRef.current[2] = el; }}
             whileHover={{ y: -5, boxShadow: '0 12px 32px rgba(0,0,0,0.10)', transition: { duration: 0.22, ease: 'easeOut' } }}
           >
             <Card className="bg-white border border-sand/60 rounded-2xl p-8 overflow-hidden">
@@ -95,7 +95,7 @@ export default function Courses() {
 
           {/* Card 4 */}
           <motion.div
-            ref={(el) => (cardsRef.current[3] = el)}
+            ref={(el) => { cardsRef.current[3] = el; }}
             whileHover={{ y: -5, boxShadow: '0 12px 32px rgba(0,0,0,0.10)', transition: { duration: 0.22, ease: 'easeOut' } }}
           >
             <Card className="bg-white border border-sand/60 rounded-2xl p-8 overflow-hidden">

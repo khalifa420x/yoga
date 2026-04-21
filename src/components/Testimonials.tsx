@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { revealStagger } from '../lib/animations';
 
 export default function Testimonials() {
-  const cardsRef = useRef([]);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -28,7 +28,7 @@ export default function Testimonials() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
           {/* Card 1 */}
           <motion.div
-            ref={(el) => (cardsRef.current[0] = el)}
+            ref={(el) => { cardsRef.current[0] = el; }}
             whileHover={{ y: -4, boxShadow: '0 12px 32px rgba(0,0,0,0.20)', transition: { duration: 0.22, ease: 'easeOut' } }}
             className="bg-forest border border-sage/20 rounded-2xl p-8"
           >
@@ -53,7 +53,7 @@ export default function Testimonials() {
 
           {/* Card 2 */}
           <motion.div
-            ref={(el) => (cardsRef.current[1] = el)}
+            ref={(el) => { cardsRef.current[1] = el; }}
             whileHover={{ y: -4, boxShadow: '0 12px 32px rgba(0,0,0,0.20)', transition: { duration: 0.22, ease: 'easeOut' } }}
             className="bg-forest border border-sage/20 rounded-2xl p-8"
           >

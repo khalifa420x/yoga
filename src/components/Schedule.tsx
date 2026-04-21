@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { revealSection } from '../lib/animations';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '../ui/tabs';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from './ui/tabs';
 
 const scheduleData = [
   { jour: "Lundi", cours: "Hatha", heure: "7h30", places: 3 },
@@ -15,7 +15,7 @@ const scheduleData = [
 ];
 
 export default function Schedule() {
-  const sectionRef = useRef(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const [activeTab, setActiveTab] = useState("Tous");
 
   useEffect(() => {
@@ -27,17 +27,17 @@ export default function Schedule() {
 
   const filteredSchedule = activeTab === "Tous" ? scheduleData : scheduleData.filter(item => item.cours === activeTab);
 
-  const getPlacesText = (places) => {
+  const getPlacesText = (places: number | null): string => {
     if (places === null) return "-";
     return `${places} places`;
   };
 
-  const getPlacesClass = (places) => {
+  const getPlacesClass = (places: number | null): string => {
     if (places === null) return "text-text-muted";
     return places <= 2 ? "text-amber-600 font-medium" : "text-text-muted";
   };
 
-  const getWhatsAppLink = (cours, jour, heure) => {
+  const getWhatsAppLink = (cours: string, jour: string, heure: string): string => {
     const message = `Bonjour, je souhaite réserver le cours de ${cours} le ${jour} à ${heure}.`;
     const encodedMessage = encodeURIComponent(message);
     return `https://wa.me/33612345678?text=${encodedMessage}`;
@@ -77,16 +77,17 @@ export default function Schedule() {
 
           <TabsContent value={activeTab} className="mt-8">
             <div className="bg-white rounded-2xl border border-sand overflow-hidden">
-              <table className="w-full">
-                <thead className="bg-sand">
-                  <tr>
-                    <th className="text-xs uppercase tracking-wide text-text-muted py-4 px-6 text-left">Jour</th>
-                    <th className="text-xs uppercase tracking-wide text-text-muted py-4 px-6 text-left">Cours</th>
-                    <th className="text-xs uppercase tracking-wide text-text-muted py-4 px-6 text-left">Heure</th>
-                    <th className="text-xs uppercase tracking-wide text-text-muted py-4 px-6 text-left">Places</th>
-                    <th className="text-xs uppercase tracking-wide text-text-muted py-4 px-6 text-left">Action</th>
-                  </tr>
-                </thead>
+              <div className="overflow-x-auto">
+                <table className="w-full min-w-[600px]">
+                  <thead className="bg-sand">
+                    <tr>
+                      <th className="text-xs uppercase tracking-wide text-text-muted py-4 px-6 text-left">Jour</th>
+                      <th className="text-xs uppercase tracking-wide text-text-muted py-4 px-6 text-left">Cours</th>
+                      <th className="text-xs uppercase tracking-wide text-text-muted py-4 px-6 text-left">Heure</th>
+                      <th className="text-xs uppercase tracking-wide text-text-muted py-4 px-6 text-left">Places</th>
+                      <th className="text-xs uppercase tracking-wide text-text-muted py-4 px-6 text-left">Action</th>
+                    </tr>
+                  </thead>
                 <tbody>
                   {filteredSchedule.map((item, index) => (
                     <tr key={index} className="border-b border-sand/50 hover:bg-cream transition">
@@ -108,6 +109,7 @@ export default function Schedule() {
                   ))}
                 </tbody>
               </table>
+              </div>
             </div>
           </TabsContent>
         </Tabs>

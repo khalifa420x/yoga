@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import { revealStagger } from '../lib/animations';
 
 export default function Benefits() {
-  const itemsRef = useRef([]);
+  const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -25,7 +25,7 @@ export default function Benefits() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mt-12">
           {/* Benefit 1 */}
-          <div ref={(el) => (itemsRef.current[0] = el)} className="flex flex-col items-start md:items-center">
+          <div ref={(el) => { itemsRef.current[0] = el; }} className="flex flex-col items-start md:items-center">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7 text-sage stroke-2 mb-4">
               <path d="M12 2v20M5 9l7-7 7 7M5 15l7-7 7 7" />
             </svg>
@@ -34,7 +34,7 @@ export default function Benefits() {
           </div>
 
           {/* Benefit 2 */}
-          <div ref={(el) => (itemsRef.current[1] = el)} className="flex flex-col items-start md:items-center">
+          <div ref={(el) => { itemsRef.current[1] = el; }} className="flex flex-col items-start md:items-center">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7 text-sage stroke-2 mb-4">
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
             </svg>
@@ -43,7 +43,7 @@ export default function Benefits() {
           </div>
 
           {/* Benefit 3 */}
-          <div ref={(el) => (itemsRef.current[2] = el)} className="flex flex-col items-start md:items-center">
+          <div ref={(el) => { itemsRef.current[2] = el; }} className="flex flex-col items-start md:items-center">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7 text-sage stroke-2 mb-4">
               <path d="M12 2v20M8 6h8M8 10h8M8 14h8M8 18h8" />
             </svg>
@@ -52,7 +52,7 @@ export default function Benefits() {
           </div>
 
           {/* Benefit 4 */}
-          <div ref={(el) => (itemsRef.current[3] = el)} className="flex flex-col items-start md:items-center">
+          <div ref={(el) => { itemsRef.current[3] = el; }} className="flex flex-col items-start md:items-center">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7 text-sage stroke-2 mb-4">
               <path d="M12 2v20M8 8l4-4 4 4M8 16l4 4 4-4" />
             </svg>
@@ -61,7 +61,7 @@ export default function Benefits() {
           </div>
 
           {/* Benefit 5 */}
-          <div ref={(el) => (itemsRef.current[4] = el)} className="flex flex-col items-start md:items-center">
+          <div ref={(el) => { itemsRef.current[4] = el; }} className="flex flex-col items-start md:items-center">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7 text-sage stroke-2 mb-4">
               <circle cx="12" cy="8" r="4" />
               <path d="M12 12v4M10 14h4" />
@@ -71,7 +71,7 @@ export default function Benefits() {
           </div>
 
           {/* Benefit 6 */}
-          <div ref={(el) => (itemsRef.current[5] = el)} className="flex flex-col items-start md:items-center">
+          <div ref={(el) => { itemsRef.current[5] = el; }} className="flex flex-col items-start md:items-center">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7 text-sage stroke-2 mb-4">
               <rect x="1" y="6" width="18" height="12" rx="2" ry="2" />
               <line x1="23" y1="13" x2="23" y2="11" />

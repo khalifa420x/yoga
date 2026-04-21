@@ -3,10 +3,10 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { revealStagger } from '../lib/animations';
-import { Card } from '../ui/card';
+import { Card } from './ui/card';
 
 export default function Recognition() {
-  const cardsRef = useRef([]);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -26,7 +26,7 @@ export default function Recognition() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 max-w-6xl mx-auto px-6">
         <motion.div
-          ref={(el) => (cardsRef.current[0] = el)}
+          ref={(el) => { cardsRef.current[0] = el; }}
           whileHover={{ y: -5, boxShadow: '0 10px 25px rgba(0,0,0,0.1)', transition: { duration: 0.22, ease: 'easeOut' } }}
         >
           <Card className="bg-white border border-sand rounded-2xl p-8">
@@ -43,7 +43,7 @@ export default function Recognition() {
         </motion.div>
 
         <motion.div
-          ref={(el) => (cardsRef.current[1] = el)}
+          ref={(el) => { cardsRef.current[1] = el; }}
           whileHover={{ y: -5, boxShadow: '0 10px 25px rgba(0,0,0,0.1)', transition: { duration: 0.22, ease: 'easeOut' } }}
         >
           <Card className="bg-white border border-sand rounded-2xl p-8">
@@ -60,7 +60,7 @@ export default function Recognition() {
         </motion.div>
 
         <motion.div
-          ref={(el) => (cardsRef.current[2] = el)}
+          ref={(el) => { cardsRef.current[2] = el; }}
           whileHover={{ y: -5, boxShadow: '0 10px 25px rgba(0,0,0,0.1)', transition: { duration: 0.22, ease: 'easeOut' } }}
         >
           <Card className="bg-white border border-sand rounded-2xl p-8">

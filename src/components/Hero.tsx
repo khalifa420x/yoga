@@ -66,7 +66,7 @@ export default function Hero() {
 
         <div ref={ctaRef} className="hero-cta mt-8">
           <motion.button
-            className="bg-sage text-white rounded-full px-8 py-4 font-inter text-base"
+            className="bg-sage text-white rounded-full px-8 py-4 font-inter text-base w-full md:w-auto"
             whileHover={{
               scale: 1.03,
               boxShadow: '0 8px 16px rgba(0,0,0,0.2)',

@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { revealStagger } from '../lib/animations';
 
 export default function FinalCTA() {
-  const elementsRef = useRef([]);
+  const elementsRef = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -17,19 +17,19 @@ export default function FinalCTA() {
   return (
     <section className="bg-darkforest py-24">
       <div className="max-w-2xl mx-auto px-6 text-center">
-        <h2 ref={(el) => (elementsRef.current[0] = el)} className="font-dm-serif italic text-4xl md:text-5xl text-cream mb-4">
+        <h2 ref={(el) => { elementsRef.current[0] = el; }} className="font-dm-serif italic text-4xl md:text-5xl text-cream mb-4">
           Prêt à commencer ?
         </h2>
-        <p ref={(el) => (elementsRef.current[1] = el)} className="font-inter text-base text-cream/70 mt-4 leading-relaxed">
+        <p ref={(el) => { elementsRef.current[1] = el; }} className="font-inter text-base text-cream/70 mt-4 leading-relaxed">
           Pas d'engagement. Pas de matériel requis. Juste vous, comme vous êtes.
         </p>
 
-        <div ref={(el) => (elementsRef.current[2] = el)} className="mt-10 flex flex-col md:flex-row gap-4 justify-center">
+        <div ref={(el) => { elementsRef.current[2] = el; }} className="mt-10 flex flex-col md:flex-row gap-4 justify-center">
           <motion.a
             href="https://wa.me/33612345678"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#25D366] text-white rounded-full px-8 py-4 text-base font-medium flex items-center justify-center gap-2"
+            className="bg-[#25D366] text-white rounded-full px-8 py-4 text-base font-medium flex items-center justify-center gap-2 w-full md:w-auto"
             whileHover={{
               scale: 1.03,
               boxShadow: '0 0 0 4px rgba(37,211,102,0.25)',
@@ -44,7 +44,7 @@ export default function FinalCTA() {
 
           <motion.a
             href="mailto:contact@sophielaurent-yoga.fr"
-            className="border border-cream/40 text-cream rounded-full px-8 py-4 text-base bg-transparent hover:bg-cream/10"
+            className="border border-cream/40 text-cream rounded-full px-8 py-4 text-base bg-transparent hover:bg-cream/10 w-full md:w-auto"
             whileHover={{ scale: 1.02, transition: { duration: 0.22 } }}
           >
             Envoyer un message

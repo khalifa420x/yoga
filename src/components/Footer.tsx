@@ -11,7 +11,7 @@ export default function Footer() {
 
         <div className="mt-6 mb-6 border-t border-sage/10 max-w-xs mx-auto"></div>
 
-        <div className="flex gap-6 justify-center">
+        <div className="flex flex-col md:flex-row gap-6 justify-center">
           <a
             href="mailto:contact@sophielaurent-yoga.fr"
             className="font-inter text-sm text-sage-light hover:text-cream transition"
