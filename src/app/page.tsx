@@ -1,7 +1,12 @@
 // Import components here
+import Nav from '../components/Nav';
 
 export default function Home() {
-  return <div></div>;
+  return (
+    <div>
+      <Nav />
+    </div>
+  );
 }
             Deploy Now
           </a>
