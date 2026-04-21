@@ -5,6 +5,7 @@ import SocialProof from '../components/SocialProof';
 import Recognition from '../components/Recognition';
 import About from '../components/About';
 import Courses from '../components/Courses';
+import Benefits from '../components/Benefits';
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <Recognition />
       <About />
       <Courses />
+      <Benefits />
     </div>
   );
 }
