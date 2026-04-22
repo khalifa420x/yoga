@@ -4,98 +4,80 @@ import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
+import { useLang } from '../contexts/LanguageContext';
 
 export default function Hero() {
   const bgRef = useRef(null);
   const textRef = useRef(null);
   const ctaRef = useRef(null);
+  const { tr } = useLang();
+  const h = tr.hero;
 
   useEffect(() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (!prefersReducedMotion && bgRef.current) {
-      gsap.fromTo(bgRef.current, { scale: 1 }, { scale: 1.05, duration: 12, ease: 'none' });
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduced && bgRef.current) {
+      gsap.fromTo(bgRef.current, { scale: 1 }, { scale: 1.05, duration: 14, ease: 'none' });
     }
     if (textRef.current) {
-      gsap.fromTo(textRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, delay: 0.3, duration: 0.9 });
+      gsap.fromTo(textRef.current, { opacity: 0, y: 22 }, { opacity: 1, y: 0, delay: 0.3, duration: 1 });
     }
     if (ctaRef.current) {
-      gsap.fromTo(ctaRef.current, { opacity: 0, y: 14 }, { opacity: 1, y: 0, delay: 0.8, duration: 0.7 });
+      gsap.fromTo(ctaRef.current, { opacity: 0, y: 14 }, { opacity: 1, y: 0, delay: 0.9, duration: 0.7 });
     }
   }, []);
 
-  const handleScrollToCourses = () => {
-    document.querySelector('#courses')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
-    <section className="relative min-h-screen overflow-hidden w-full">
-      {/* Background Image */}
+    <section className="relative min-h-screen overflow-hidden w-full" aria-label="Hero">
+      {/* Background */}
       <Image
         ref={bgRef}
-        src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1400&q=85"
-        alt="Yoga background"
+        src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1600&q=90"
+        alt="Séance de yoga privée dans une villa du Sud de la France"
         fill
-        className="object-cover"
+        className="object-cover object-center"
         priority
+        sizes="100vw"
       />
 
       {/* Overlay */}
       <div
         className="absolute inset-0"
-        style={{
-          background: 'linear-gradient(135deg, rgba(28,31,20,0.82) 0%, rgba(28,31,20,0.38) 55%, transparent 100%)'
-        }}
+        style={{ background: 'linear-gradient(150deg, rgba(26,31,20,0.88) 0%, rgba(26,31,20,0.50) 50%, rgba(26,31,20,0.20) 100%)' }}
       />
 
-      {/* Content — bottom left, constrained to viewport width */}
-      <div className="absolute bottom-0 left-0 right-0 pb-20 md:pb-24 px-4 md:pl-16 md:pr-8 md:max-w-2xl">
-        <div ref={textRef}>
+      {/* Content */}
+      <div className="absolute bottom-0 left-0 right-0 pb-20 md:pb-28 px-4 md:pl-16 md:pr-8">
+        <div ref={textRef} className="max-w-3xl">
+          <span className="font-plus-jakarta text-xs tracking-widest text-surface/60 uppercase mb-4 block">
+            {h.label}
+          </span>
           <h1
-            className="font-noto-serif font-bold text-4xl md:text-6xl lg:text-7xl text-surface leading-[0.95] tracking-tight"
+            className="font-noto-serif font-bold text-4xl md:text-6xl lg:text-7xl text-surface leading-[0.93]"
             style={{ letterSpacing: '-0.02em' }}
           >
-            Retrouvez<br />un corps<br />léger
+            {h.h1}
           </h1>
-          <p className="font-plus-jakarta text-base md:text-lg text-surface/85 mt-5 max-w-sm md:max-w-md leading-relaxed">
-            Des cours accessibles à tous, même si vous n'avez jamais fait de yoga.
+          <p className="font-plus-jakarta text-base md:text-lg text-surface/80 mt-6 max-w-xl leading-relaxed">
+            {h.subtitle}
           </p>
         </div>
 
-        <div ref={ctaRef} className="mt-8 flex flex-col sm:flex-row gap-3">
-          <motion.button
-            className="text-surface rounded-full px-8 py-4 font-plus-jakarta text-base font-medium w-full md:w-auto"
-            style={{
-              background: 'linear-gradient(135deg, #28351c 0%, #3e4c31 100%)',
-              boxShadow: '0 20px 40px rgba(40,53,28,0.30)',
-            }}
-            whileHover={{ scale: 1.03, transition: { duration: 0.22 } }}
+        <div ref={ctaRef} className="mt-10 flex flex-col sm:flex-row gap-3 max-w-3xl">
+          <motion.a
+            href="#contact"
+            className="text-surface rounded-full px-8 py-4 font-plus-jakarta text-base font-medium w-full sm:w-auto text-center"
+            style={{ background: 'linear-gradient(135deg, #28351c 0%, #3e4c31 100%)', boxShadow: '0 20px 40px rgba(40,53,28,0.35)' }}
+            whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
           >
-            Réserver ma première séance →
-          </motion.button>
-          <button
-            onClick={handleScrollToCourses}
-            className="text-surface/70 text-sm font-plus-jakarta underline underline-offset-4 self-center"
+            {h.ctaPrimary}
+          </motion.a>
+          <a
+            href="#services"
+            className="text-surface/70 text-sm font-plus-jakarta underline underline-offset-4 self-center text-center"
           >
-            Découvrir les cours ↓
-          </button>
+            {h.ctaSecondary}
+          </a>
         </div>
-      </div>
-
-      {/* Desktop vignette — hidden on mobile */}
-      <div className="absolute bottom-8 right-8 hidden md:block">
-        <div className="w-40 h-52 rounded-3xl overflow-hidden" style={{ boxShadow: '0 20px 40px rgba(40,53,28,0.20)' }}>
-          <Image
-            src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&q=85"
-            alt="Studio Montpellier"
-            width={160}
-            height={208}
-            className="object-cover max-w-full"
-          />
-        </div>
-        <p className="text-surface/60 text-xs mt-2 text-center font-plus-jakarta">
-          Studio · Montpellier
-        </p>
       </div>
     </section>
   );

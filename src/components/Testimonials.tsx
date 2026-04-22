@@ -4,79 +4,63 @@ import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { revealStagger } from '../lib/animations';
+import { useLang } from '../contexts/LanguageContext';
 
 export default function Testimonials() {
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const { tr } = useLang();
+  const t = tr.testimonials;
 
   useEffect(() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!prefersReducedMotion && cardsRef.current.length > 0) {
-      revealStagger(cardsRef.current, 0.15);
-    }
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduced) revealStagger(cardsRef.current, 0.15);
   }, []);
 
   return (
-    <section className="bg-primary py-32 w-full">
+    <section id="testimonials" className="bg-primary py-28 md:py-32 w-full">
       <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
-        <div className="text-center">
-          <p className="text-xs tracking-widest text-sage-light mb-3 font-plus-jakarta uppercase">Ils en parlent mieux que nous</p>
-          <h2 className="font-noto-serif text-3xl md:text-4xl text-surface mt-3 mb-16" style={{ letterSpacing: '-0.02em' }}>
-            Ce que nos élèves ressentent
+        <div className="text-center mb-16">
+          <p className="font-plus-jakarta text-xs tracking-widest text-sage-light uppercase mb-3">{t.label}</p>
+          <h2 className="font-noto-serif text-3xl md:text-4xl text-surface" style={{ letterSpacing: '-0.02em' }}>
+            {t.title}
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Card 1 */}
-          <motion.div
-            ref={(el) => { cardsRef.current[0] = el; }}
-            whileHover={{ y: -5, transition: { duration: 0.22, ease: 'easeOut' } }}
-            className="rounded-3xl p-8"
-            style={{ background: '#3e4c31', boxShadow: '0 20px 40px rgba(0,0,0,0.15)' }}
-          >
-            <div className="text-gold text-sm mb-4">★★★★★</div>
-            <div className="font-noto-serif text-9xl leading-none -mt-6 mb-2" style={{ color: 'rgba(90,122,95,0.40)' }}>"</div>
-            <p className="font-noto-serif italic text-lg text-surface leading-relaxed -mt-4">
-              Je venais pour mon dos. Trois mois plus tard, je dors mieux, j'ai moins d'anxiété, et je me sens plus légère dans ma tête. Je n'aurais pas parié là-dessus.
-            </p>
-            <div className="mt-8 pt-6" style={{ borderTop: '1px solid rgba(90,122,95,0.20)' }}>
-              <div className="flex items-center gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          {t.quotes.map((q, i) => (
+            <motion.div
+              key={i}
+              ref={(el) => { cardsRef.current[i] = el; }}
+              whileHover={{ y: -5, transition: { duration: 0.22, ease: 'easeOut' } }}
+              className="rounded-3xl p-8"
+              style={{ background: '#3e4c31', boxShadow: '0 20px 40px rgba(0,0,0,0.18)' }}
+            >
+              <div className="text-gold text-sm mb-3">★★★★★</div>
+              <div
+                className="font-noto-serif text-8xl leading-none -mt-4 mb-1 select-none"
+                style={{ color: 'rgba(90,122,95,0.35)' }}
+                aria-hidden
+              >
+                "
+              </div>
+              <p className="font-noto-serif italic text-lg text-surface leading-relaxed -mt-2">
+                {q.text}
+              </p>
+              <div className="mt-7 pt-6 flex items-center gap-4" style={{ borderTop: '1px solid rgba(90,122,95,0.18)' }}>
                 <Image
-                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&q=85"
-                  alt="Sophie M."
+                  src={q.avatar}
+                  alt={q.name}
                   width={48}
                   height={48}
-                  className="rounded-full object-cover"
+                  className="rounded-full object-cover shrink-0"
                 />
-                <p className="font-plus-jakarta text-sm text-surface/60">Sophie M. · 38 ans · Hatha depuis 3 mois</p>
+                <div>
+                  <p className="font-plus-jakarta text-sm font-medium text-surface">{q.name}</p>
+                  <p className="font-plus-jakarta text-xs text-surface/50 mt-0.5">{q.detail}</p>
+                </div>
               </div>
-            </div>
-          </motion.div>
-
-          {/* Card 2 */}
-          <motion.div
-            ref={(el) => { cardsRef.current[1] = el; }}
-            whileHover={{ y: -5, transition: { duration: 0.22, ease: 'easeOut' } }}
-            className="rounded-3xl p-8"
-            style={{ background: '#3e4c31', boxShadow: '0 20px 40px rgba(0,0,0,0.15)' }}
-          >
-            <div className="text-gold text-sm mb-4">★★★★★</div>
-            <div className="font-noto-serif text-9xl leading-none -mt-6 mb-2" style={{ color: 'rgba(90,122,95,0.40)' }}>"</div>
-            <p className="font-noto-serif italic text-lg text-surface leading-relaxed -mt-4">
-              Marie explique tout simplement. Je n'avais jamais fait de yoga, j'avais peur de ne pas y arriver. Dès la première séance, j'étais à ma place.
-            </p>
-            <div className="mt-8 pt-6" style={{ borderTop: '1px solid rgba(90,122,95,0.20)' }}>
-              <div className="flex items-center gap-4">
-                <Image
-                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&q=85"
-                  alt="Thomas L."
-                  width={48}
-                  height={48}
-                  className="rounded-full object-cover"
-                />
-                <p className="font-plus-jakarta text-sm text-surface/60">Thomas L. · 44 ans · Débutant absolu</p>
-              </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
