@@ -34,7 +34,7 @@ export default function Hero() {
         src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1600&q=90"
         alt="Séance de yoga privée dans une villa du Sud de la France"
         fill
-        className="object-cover object-center"
+        className="object-cover object-top md:object-[center_20%]"
         priority
         sizes="100vw"
       />
